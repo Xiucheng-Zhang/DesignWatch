@@ -1,0 +1,401 @@
+{
+  "scenario": "Check my ranking in the user group",
+  "users": [
+    {
+      "id": 1,
+      "video": "/task_check_ranking/videos/1.mp4",
+      "familiar": 1,
+      "duration": 8.922,
+      "avgDwell": 1.784,
+      "workflow": [
+        "/task_check_ranking/precomputed/workflows/user_1/0.jpg",
+        "/task_check_ranking/precomputed/workflows/user_1/1.jpg",
+        "/task_check_ranking/precomputed/workflows/user_1/2.jpg",
+        "/task_check_ranking/precomputed/workflows/user_1/3.jpg",
+        "/task_check_ranking/precomputed/workflows/user_1/4.jpg"
+      ],
+      "labels": [
+        "A",
+        "D",
+        "E",
+        "B",
+        "C"
+      ],
+      "mlp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "narration": "**Task: Check my ranking in the user group.**\n\n[pic1-pic2] I'm on the home screen showing \"我的状态\" (My Status). I don't see anything directly related to \"user group\" or \"ranking\" here. I tapped the \"运动记录\" (Activity Record) tab to explore, but it just shows an empty record page with no group-related content. This isn't what I need. &#x1F622;\n\n[pic2-pic3] Still no sign of a user group or ranking feature. I tapped over to \"运动统计\" (Sports Statistics), which shows weekly running charts and stats — still no group ranking in sight. I'm exploring without finding the target. &#x1F622;\n\n[pic3-pic4] I switched to the \"发现\" (Discover) tab at the bottom navigation bar and landed on the \"群组\" (Groups) tab. I can now see \"我的群组\" (My Groups) section with \"RQrun用户群组\" listed — this matches what I'm looking for! &#x1F604;\n\n[pic4-pic5] I tapped on \"RQrun用户群组\" and was taken directly to the group ranking page. I can see the leaderboard with \"排名\" (Ranking), \"训练指数(月)\" (Monthly Training Index), and \"性别组\" (Gender Group) columns. My account \"忘年\" shows at the top with a \"-\" ranking. The ranking list is clearly visible. &#x1F604;"
+    },
+    {
+      "id": 2,
+      "video": "/task_check_ranking/videos/2.mp4",
+      "familiar": 0,
+      "duration": 9.143,
+      "avgDwell": 3.048,
+      "workflow": [
+        "/task_check_ranking/precomputed/workflows/user_2/0.jpg",
+        "/task_check_ranking/precomputed/workflows/user_2/1.jpg",
+        "/task_check_ranking/precomputed/workflows/user_2/2.jpg"
+      ],
+      "labels": [
+        "A",
+        "F",
+        "C"
+      ],
+      "mlp": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "narration": "Task: Check my ranking in the user group.\n\n[pic1-pic2] On the home screen (我的状态), I don't see a direct entry point for \"user group ranking.\" I try tapping the \"分析\" (Analysis) tab at the bottom, which brings me to a running power (跑力) analysis page. This isn't directly about group ranking, so I'm exploring. &#x1F611;\n\n[pic2-pic3] From the analysis page, it seems I navigated further and landed directly on the \"RQrun用户群组\" (RQrun User Group) ranking page, which shows my position (\"-\") along with other ranked members and their training scores. The ranking list is now visible, fulfilling the task goal. &#x1F604;"
+    },
+    {
+      "id": 3,
+      "video": "/task_check_ranking/videos/3.mp4",
+      "familiar": 1,
+      "duration": 14.358,
+      "avgDwell": 2.872,
+      "workflow": [
+        "/task_check_ranking/precomputed/workflows/user_3/0.jpg",
+        "/task_check_ranking/precomputed/workflows/user_3/1.jpg",
+        "/task_check_ranking/precomputed/workflows/user_3/2.jpg",
+        "/task_check_ranking/precomputed/workflows/user_3/3.jpg",
+        "/task_check_ranking/precomputed/workflows/user_3/4.jpg"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "F",
+        "B",
+        "C"
+      ],
+      "mlp": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "narration": "Task: Check my ranking in the user group.\n\n[pic1-pic2] On the home screen I don't see anything directly labeled \"ranking\" or \"user group,\" so I navigate to the \"发现\" (Discover) tab at the bottom. There I can see a \"群组\" (Groups) tab and under \"我的群组\" (My Groups) I can spot \"RQrun用户群组,\" which looks promising for finding my ranking. &#x1F611;\n\n[pic2-pic3] I accidentally tapped the \"分析\" (Analysis) tab instead of tapping on the \"RQrun用户群组\" card. The page that appeared shows running analytics data — not what I need. This is a wrong turn. &#x1F622;\n\n[pic3-pic4] I navigate back to the \"发现\" tab and land again on the Groups page, where I can see \"RQrun用户群组\" under \"我的群组.\" Now I tap on it correctly. &#x1F611;\n\n[pic4-pic5] The \"RQrun用户群组\" page opens and shows a ranking list with \"排名\" (Ranking) column, along with my profile \"忘年\" at the top showing \"-\" as my rank. The leaderboard with other users' rankings is clearly visible. The task goal of checking my ranking in the user group is accomplished. &#x1F604;"
+    },
+    {
+      "id": 4,
+      "video": "/task_check_ranking/videos/4.mp4",
+      "familiar": 1,
+      "duration": 14.923,
+      "avgDwell": 3.731,
+      "workflow": [
+        "/task_check_ranking/precomputed/workflows/user_4/0.jpg",
+        "/task_check_ranking/precomputed/workflows/user_4/1.jpg",
+        "/task_check_ranking/precomputed/workflows/user_4/2.jpg",
+        "/task_check_ranking/precomputed/workflows/user_4/3.jpg"
+      ],
+      "labels": [
+        "A",
+        "E",
+        "F",
+        "C"
+      ],
+      "mlp": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "narration": "Task: Check my ranking in the user group.\n\n[pic1-pic2] On the home screen (我的状态), I don't see anything directly related to \"user group\" or \"ranking.\" I tapped on \"运动统计\" (Sports Statistics) tab to explore, landing on a weekly running statistics page. This doesn't seem directly related to the user group ranking, so this was exploratory. &#x1F611;\n\n[pic2-pic3] The statistics page still doesn't show a user group ranking. I then tapped on \"分析\" (Analysis) in the bottom navigation bar, arriving at a training status page with tabs for 体能, 跑力, and 技术. Still no direct mention of user group ranking — I'm still searching. &#x1F622;\n\n[pic3-pic4] From the 分析 page, I eventually navigated into the \"RQrun用户群组\" (RQrun User Group) page, which clearly shows the ranking list (排名) with my profile \"忘年\" displayed at the top with a \"-\" ranking indicator, and other members ranked below. The ranking information is now visible, completing the task. &#x1F604;"
+    }
+  ],
+  "groundTruth": {
+    "images": [
+      "/task_check_ranking/ground_truth/1.jpg",
+      "/task_check_ranking/ground_truth/2.jpg",
+      "/task_check_ranking/ground_truth/3.jpg"
+    ],
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  "topology": {
+    "all": {
+      "nodes": [
+        {
+          "id": 0,
+          "label": "A"
+        },
+        {
+          "id": 1,
+          "label": "D"
+        },
+        {
+          "id": 2,
+          "label": "E"
+        },
+        {
+          "id": 3,
+          "label": "B"
+        },
+        {
+          "id": 4,
+          "label": "C"
+        },
+        {
+          "id": 5,
+          "label": "F"
+        }
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1,
+          "title": "group0",
+          "arrows": "to",
+          "id": 0
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "title": "group0",
+          "arrows": "to",
+          "id": 1
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "title": "group0",
+          "arrows": "to",
+          "id": 2
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "title": "group0",
+          "arrows": "to",
+          "id": 3
+        },
+        {
+          "from": 0,
+          "to": 5,
+          "title": "group1",
+          "arrows": "to",
+          "id": 4
+        },
+        {
+          "from": 5,
+          "to": 4,
+          "title": "group1",
+          "arrows": "to",
+          "id": 5
+        },
+        {
+          "from": 0,
+          "to": 3,
+          "title": "group2",
+          "arrows": "to",
+          "id": 6
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "title": "group2",
+          "arrows": "to",
+          "id": 7
+        },
+        {
+          "from": 5,
+          "to": 3,
+          "title": "group2",
+          "arrows": "to",
+          "id": 8
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "title": "group2",
+          "arrows": "to",
+          "id": 9
+        },
+        {
+          "from": 0,
+          "to": 2,
+          "title": "group3",
+          "arrows": "to",
+          "id": 10
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "title": "group3",
+          "arrows": "to",
+          "id": 11
+        },
+        {
+          "from": 5,
+          "to": 4,
+          "title": "group3",
+          "arrows": "to",
+          "id": 12
+        }
+      ]
+    },
+    "familiar": {
+      "nodes": [
+        {
+          "id": 0,
+          "label": "A"
+        },
+        {
+          "id": 1,
+          "label": "D"
+        },
+        {
+          "id": 2,
+          "label": "E"
+        },
+        {
+          "id": 3,
+          "label": "B"
+        },
+        {
+          "id": 4,
+          "label": "C"
+        },
+        {
+          "id": 5,
+          "label": "F"
+        }
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1,
+          "title": "group0",
+          "arrows": "to",
+          "id": 0
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "title": "group0",
+          "arrows": "to",
+          "id": 1
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "title": "group0",
+          "arrows": "to",
+          "id": 2
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "title": "group0",
+          "arrows": "to",
+          "id": 3
+        },
+        {
+          "from": 0,
+          "to": 3,
+          "title": "group2",
+          "arrows": "to",
+          "id": 4
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "title": "group2",
+          "arrows": "to",
+          "id": 5
+        },
+        {
+          "from": 5,
+          "to": 3,
+          "title": "group2",
+          "arrows": "to",
+          "id": 6
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "title": "group2",
+          "arrows": "to",
+          "id": 7
+        },
+        {
+          "from": 0,
+          "to": 2,
+          "title": "group3",
+          "arrows": "to",
+          "id": 8
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "title": "group3",
+          "arrows": "to",
+          "id": 9
+        },
+        {
+          "from": 5,
+          "to": 4,
+          "title": "group3",
+          "arrows": "to",
+          "id": 10
+        }
+      ]
+    },
+    "unfamiliar": {
+      "nodes": [
+        {
+          "id": 0,
+          "label": "A"
+        },
+        {
+          "id": 1,
+          "label": "F"
+        },
+        {
+          "id": 2,
+          "label": "C"
+        }
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1,
+          "title": "group1",
+          "arrows": "to",
+          "id": 0
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "title": "group1",
+          "arrows": "to",
+          "id": 1
+        }
+      ]
+    }
+  },
+  "pointImages": {
+    "A": "/task_check_ranking/precomputed/topology/A.jpg",
+    "B": "/task_check_ranking/precomputed/topology/B.jpg",
+    "C": "/task_check_ranking/precomputed/topology/C.jpg",
+    "D": "/task_check_ranking/precomputed/topology/D.jpg",
+    "E": "/task_check_ranking/precomputed/topology/E.jpg",
+    "F": "/task_check_ranking/precomputed/topology/F.jpg"
+  }
+}

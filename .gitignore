@@ -17,8 +17,9 @@ __pycache__/
 venv/
 .pytest_cache/
 
-# OS / IDE
+# OS / IDE / agent tools
 .DS_Store
 .vscode/
 .idea/
+.claude/
 *.swp

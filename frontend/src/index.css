@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink-50 text-ink-700 font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: theme("colors.accent.100");
+    color: theme("colors.accent.900");
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-ink-200 rounded-2xl shadow-soft;
+  }
+  .label {
+    @apply text-[11px] uppercase tracking-[0.14em] font-medium text-ink-500;
+  }
+  .num {
+    @apply font-mono tabular-nums text-ink-900;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2
+           text-sm font-medium transition-all duration-150
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800
+           shadow-sm hover:shadow disabled:bg-ink-300 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink-700 hover:bg-ink-100 active:bg-ink-200;
+  }
+  .btn-outline {
+    @apply btn border border-ink-300 bg-white text-ink-700 hover:bg-ink-50 hover:border-ink-400;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5
+           text-[11px] font-medium border;
+  }
+  .input {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-3 py-2
+           text-sm text-ink-900 placeholder:text-ink-400
+           focus:outline-none focus:ring-2 focus:ring-accent-400 focus:border-accent-300
+           transition-colors;
+  }
+}
+
+/* vis-network minor visual polish */
+.vis-network:focus { outline: none; }
+
+/* Smooth horizontal scroll snap for the workflow strip */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+}
+.scroll-snap-x > * {
+  scroll-snap-align: start;
+}
+
+/* Subtle hover lift used across cards/images */
+.hover-lift {
+  @apply transition-transform duration-200 ease-out;
+}
+.hover-lift:hover {
+  @apply -translate-y-0.5;
+}

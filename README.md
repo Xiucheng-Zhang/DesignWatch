@@ -4,8 +4,6 @@ A research tool from **UIST 2024** that turns a folder of UI usability-test scre
 
 For each user video it extracts a **page-flow workflow**, aligns it to a designer's **expected workflow**, builds a per-user and per-cohort **topology graph**, predicts task-difficulty signals from a small **MLP** model, and asks **Claude** to generate a step-by-step **think-aloud narration** of what the user was doing.
 
-![architecture](docs/architecture.png)
-
 > Origin: rewrote and cleaned up an earlier research codebase. The original was Chinese-commented, used a now-deprecated `gpt-4-vision-preview` endpoint, had hard-coded API keys, and shipped runtime data alongside the source. This repo is the same idea, structured for actual reuse.
 
 ---
@@ -27,7 +25,7 @@ For each user video it extracts a **page-flow workflow**, aligns it to a designe
                                                  with [positive/neutral/negative] tags
 ```
 
-The frontend is a small vanilla-JS app that talks to the backend over a single WebSocket connection on port `6012`.
+The frontend is a **React + TypeScript + Tailwind** app. On page load it shows a **pre-computed sample** so the project is browsable without a backend; clicking *Try with your own data* opens a modal that uploads recordings to the Python backend over a single WebSocket connection on port `6012`.
 
 ---
 
@@ -52,13 +50,24 @@ DesignWatch/
 │   └── llm/
 │       ├── client.py        # Claude Sonnet 4.6 with prompt caching
 │       └── few_shot/*.jpg   # the static example screenshots
-├── frontend/
+├── frontend/                # Vite + React + TypeScript
 │   ├── index.html
-│   ├── script.js
-│   ├── style.css
-│   └── assets/
+│   ├── src/
+│   │   ├── App.tsx          # root: fetches sample, orchestrates layout
+│   │   ├── components/      # Header, TopologyGraph, UserDetail, ...
+│   │   ├── lib/ws.ts        # WebSocket client for live mode
+│   │   ├── store/analysis.ts # Zustand store
+│   │   └── index.css        # Tailwind layers + custom theme
+│   └── tailwind.config.js
 ├── samples/
-│   └── task_check_ranking/  # 4 user videos + 3 GT + scenario + familiar.csv
+│   └── task_check_ranking/
+│       ├── videos/          # 4 user videos
+│       ├── ground_truth/    # 3 expected screens
+│       ├── familiar.csv     # 1 = familiar with the app
+│       ├── scenario.txt     # the task description
+│       └── precomputed/     # cached output (data.json + thumbnails)
+├── scripts/
+│   └── precompute_sample.py # runs the full pipeline, dumps to samples/.../precomputed/
 └── data/                    # runtime upload / output (gitignored)
 ```
 
@@ -85,27 +94,34 @@ The first request takes a few seconds extra because it downloads ResNet-18 weigh
 
 ### 2. Frontend
 
-The frontend is plain HTML + JS and needs to be served over HTTP (not `file://`) for the WebSocket and `URL.createObjectURL` to work cleanly. Easiest way:
-
 ```bash
 cd frontend
-python3 -m http.server 5500
-# → http://127.0.0.1:5500
+npm install
+npm run dev
+# → http://localhost:5173
 ```
 
-Or open `frontend/` in VS Code and use the **Live Server** extension.
+The page opens directly into a **pre-computed sample** — four participants on the *Check my ranking in the user group* task — so you can browse the topology, per-user workflows, MLP signals, and Claude narrations without running the backend at all.
 
-### 3. Try it with the sample data
+### 3. Try it with your own data
 
-In the UI:
+Click **Try with your own data** in the header. The modal accepts:
 
-1. **Screen Recordings** → upload all four `samples/task_check_ranking/videos/*.mp4`.
-2. **User Familiarity** → upload `samples/task_check_ranking/familiar.csv`.
-3. **Expected Workflow** → upload all three `samples/task_check_ranking/ground_truth/*.jpg`.
-4. **Task Scenario** → upload `samples/task_check_ranking/scenario.txt`.
-5. Click **Start Analysis**.
+- **Screen recordings** (`.mp4`) — one per participant
+- **Ground-truth screens** (`.jpg` / `.png`) — the canonical screens to label workflow steps against
+- **Familiarity CSV** — one column named `familiar` with `1`/`0` per participant, in video order
+- **Task scenario** — one sentence describing what each user was trying to do
 
-The first run takes ~30s for video processing on a CPU-only machine; the per-user think-aloud is generated lazily when you click that user's tab.
+Click **Run analysis**. Uploads stream to the backend over WebSocket; the page swaps from the sample view to the freshly-computed analysis when results are in.
+
+### 4. Re-generating the precomputed sample
+
+If you change the pipeline or rotate the API key, regenerate the bundled sample:
+
+```bash
+python -m scripts.precompute_sample
+# writes samples/task_check_ranking/precomputed/{data.json, workflows/*, topology/*}
+```
 
 ---
 

@@ -28,7 +28,7 @@ from .pipeline.match import load_ground_truth
 from .pipeline.workflow import process_video
 
 
-load_dotenv()
+load_dotenv(override=True)
 
 
 class Session:
