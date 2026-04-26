@@ -1,10 +1,13 @@
 # DesignWatch
 
-A research tool from **UIST 2024** that turns a folder of UI usability-test screen recordings into an explorable analytics dashboard.
+A research tool from **[MobileHCI '24 (LBW)](https://doi.org/10.1145/3640471.3680231)** that turns a folder of UI usability-test screen recordings into an explorable analytics dashboard.
 
 For each user video it extracts a **page-flow workflow**, aligns it to a designer's **expected workflow**, builds a per-user and per-cohort **topology graph**, predicts task-difficulty signals from a small **MLP** model, and asks **Claude** to generate a step-by-step **think-aloud narration** of what the user was doing.
 
-> Origin: rewrote and cleaned up an earlier research codebase. The original was Chinese-commented, used a now-deprecated `gpt-4-vision-preview` endpoint, had hard-coded API keys, and shipped runtime data alongside the source. This repo is the same idea, structured for actual reuse.
+> **Paper:** Xiucheng Zhang, Yixin Zeng, Qichang Li, Guanyi Chen, Qianyao Xu, Xiaozhu Hu, Zhenhui Peng. *DesignWatch: Analyzing Users' Operations of Mobile Apps Based on Screen Recordings.* In **MOBILEHCI '24 Adjunct**, Melbourne, Australia. ACM.
+> [📄 PDF](docs/paper.pdf) · [ACM DL (open access)](https://doi.org/10.1145/3640471.3680231)
+>
+> This repo is a cleaned-up port of the original research codebase. The paper used GPT-4V; this version swaps in **Claude Sonnet 4.6** with prompt caching. Original was Chinese-commented, used a now-deprecated `gpt-4-vision-preview` endpoint, and had hard-coded API keys — same idea, structured for actual reuse.
 
 ---
 
@@ -68,6 +71,8 @@ DesignWatch/
 │       └── precomputed/     # cached output (data.json + thumbnails)
 ├── scripts/
 │   └── precompute_sample.py # runs the full pipeline, dumps to samples/.../precomputed/
+├── docs/
+│   └── paper.pdf            # the MobileHCI '24 LBW paper
 └── data/                    # runtime upload / output (gitignored)
 ```
 
@@ -149,6 +154,21 @@ To switch models, set `ANTHROPIC_MODEL` in `.env` (e.g. `claude-opus-4-7`).
 
 ---
 
+## Citing
+
+```bibtex
+@inproceedings{zhang2024designwatch,
+  title     = {DesignWatch: Analyzing Users' Operations of Mobile Apps Based on Screen Recordings},
+  author    = {Zhang, Xiucheng and Zeng, Yixin and Li, Qichang and Chen, Guanyi and Xu, Qianyao and Hu, Xiaozhu and Peng, Zhenhui},
+  booktitle = {MOBILEHCI '24 Adjunct: Proceedings of the 26th International Conference on Mobile Human-Computer Interaction},
+  year      = {2024},
+  location  = {Melbourne, VIC, Australia},
+  publisher = {ACM},
+  doi       = {10.1145/3640471.3680231},
+  isbn      = {979-8-4007-0506-9}
+}
+```
+
 ## License
 
-Original research code from UIST 2024. No license declared — treat as research-only until one is added.
+Original research code from MobileHCI '24 LBW. No license declared — treat as research-only until one is added.

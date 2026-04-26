@@ -50,6 +50,20 @@ export function Header({ onTryYourOwn }: Props) {
               {liveBadge.label}
             </motion.span>
           )}
+          <a
+            href="https://doi.org/10.1145/3640471.3680231"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-ghost text-sm"
+            aria-label="Read the paper"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <path d="M14 2v6h6" />
+              <path d="M9 13h6M9 17h4" />
+            </svg>
+            Paper
+          </a>
           <button onClick={onTryYourOwn} className="btn-outline">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 5v14M5 12h14" />

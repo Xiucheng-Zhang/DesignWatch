@@ -57,7 +57,15 @@ export default function App() {
       <UploadModal open={uploadOpen} onClose={() => setUploadOpen(false)} />
 
       <footer className="mx-auto max-w-[1400px] px-6 lg:px-10 py-10 text-xs text-ink-400 border-t border-ink-200">
-        DesignWatch · Automated think-aloud analysis · UIST 2024
+        DesignWatch · Automated think-aloud analysis ·{" "}
+        <a
+          href="https://doi.org/10.1145/3640471.3680231"
+          target="_blank"
+          rel="noreferrer"
+          className="underline decoration-ink-300 hover:text-ink-700"
+        >
+          MobileHCI '24 LBW
+        </a>
       </footer>
     </div>
   )

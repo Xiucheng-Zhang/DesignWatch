@@ -1,6 +1,6 @@
 # Sample task: "Check my ranking in the user group"
 
-Four anonymized user screen recordings + designer-expected workflow + familiarity labels for each user, lifted from the original UIST 2024 dataset (Task 6a, trimmed from 20 users to 4 to keep the repo small).
+Four anonymized user screen recordings + designer-expected workflow + familiarity labels for each user, drawn from the [MobileHCI '24 LBW dataset](https://doi.org/10.1145/3640471.3680231) (Task 6a, trimmed from 20 users to 4 to keep the repo small).
 
 ## Files
 
