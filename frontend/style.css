@@ -1,0 +1,558 @@
+body, html {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5fc;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    height: 100%; /* 调整以确保html和body元素占满整个视窗高度 */
+    /* scroll-snap-type: y mandatory; 启用Y轴的滚动捕捉 */
+    overflow-x: hidden; /* 防止水平滚动 */
+}
+
+.total_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 300vh; /* 整体容器高度为三倍视窗高度 */
+}
+.container1, .container2, .container3, .container4{
+    scroll-snap-align: start; /* 容器滚动到视窗顶部时对齐 */
+}
+.container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh; /* 设置每个容器的高度为视窗高度 */
+    margin-bottom: 50px;
+    /* margin-top: 10px; */
+}
+.container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh; /* 设置每个容器的高度为视窗高度 */
+    /* margin-top: 20px; */
+}
+.container3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh; /* 设置每个容器的高度为视窗高度 */
+    margin-bottom: 50px;
+}
+.container4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh; /* 设置每个容器的高度为视窗高度 */
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+.groundTruth_container{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    /* margin-left: 100px; */
+    width: 400 px;
+    height: 550 px;
+}
+
+.video-button-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* 允许垂直滚动 */
+    align-items: center; /* 水平居中按钮 */
+    justify-content: flex-start; /* 从顶部开始排列按钮 */
+    height: 88%; /* 或者根据实际需要调整高度 */
+    margin: 45px 50px 5px 30px; /* 增加顶部和底部的空间 */
+    /* width: auto; */
+    max-width: 160px; /* 设置最大宽度 */
+    width: 180px;
+}
+
+/* 为视频按钮定义样式 */
+.video-button {
+    background-color: #004c99; /* 按钮颜色，可以根据你的需要修改 */
+    border: none;
+    color: white;
+    /* padding: auto; 按钮内边距 */
+    max-width: 160px; /* 按钮最大宽度 */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px; /* 可以根据需要调整字体大小 */
+    margin: 5px 0px; /* 按钮之间的间距 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    border-radius: 50px; /* 圆角按钮 */
+    width: 130px; /* 设置按钮宽度 */
+    /* height: 50px; 设置按钮高度 */
+}
+#videoPlayer{
+    margin-top: 5px;
+}
+.top_buttun{
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 50px;
+}
+.workflow_container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    /* justify-content: center; */
+    /* margin-top: 20px; */
+    width: 100%;
+    height: 180%;
+    /* margin-bottom: 20px; */
+}
+.text_container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: center;
+    /* margin-top: 20px; */
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+    font-size: 22px; /* 设置字体大小 */
+    font-weight: normal; /* 设置字体粗细 */
+    
+}
+.workflow_container:before, .text_container:before {
+    content: attr(data-title);
+    display: block;
+    font-size: 24px;
+    color: #004c99;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.upload-container {
+    background-color: #004c99;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 15px;
+    color: #ffffff;
+    width: 98%;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.5s ease;
+    border-radius: 500px;
+}
+.upload-container_csv {
+    background-color: #004c99;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    padding: 3px;
+    border-radius: 5px;
+    color: #ffffff;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+.top_Summary{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between, center;
+    width: 100%;
+    height: 90%;
+}
+.top_container{
+    display: flex;
+    justify-content: center, space-between;
+    flex-direction: column;
+    width: 66%;
+    height: 98%;
+    margin-top: 15px;
+    border: 0px solid #ccc; /* 为了可视化，添加边框 */
+    cursor: pointer;
+}
+.all_top_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 85%;
+    height: 88%;
+
+    border: 2px solid #004c99; /* 设置边框样式 */
+    border-radius: 20px;
+    margin-left: 54px;
+    margin-right: 54px;
+}
+.twoPart_top_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 37%;
+    height: 100%;
+    margin-bottom: 5px;
+}
+.twoPart_top_container1{
+    display: flex;
+    width: 95%;
+    height: 45%;
+}
+.twoPart_top_container2{
+    display: flex;
+    width: 95%;
+    height: 45%;
+}
+.PE_content_container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 30%;
+    height: 100%;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 0px solid #004c99; /* 设置边框样式 */
+    border-radius: 20px;
+}
+.node_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    /* margin-top: 30px; */
+    border: 0px solid #ccc; /* 为了可视化，添加边框 */
+    font-size: 25px; /* 设置字体大小 */
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+.edge_container{
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    width: 90%;
+    height: 27%;
+    align-items: center; /* 垂直居中 */
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+    font-size: 25px; /* 设置字体大小 */
+    overflow-x: auto;
+    align-items: flex-start;
+    /* font-weight: normal; 设置字体粗细 */
+    border: 2px solid #004c99; /* 设置边框样式 */
+    border-radius: 20px;
+    padding-left: 10px ;
+    padding-right: 10px;
+    padding-top: 15px;
+    margin-left: 16px;
+}
+input[type="file"], button {
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+button {
+    background-color: #e0e0e0;
+    color: #333333;
+    border: none;
+    padding: 13px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+/* 图片的样式 */
+.pic {
+    width: auto;
+    height: auto;
+    max-width: 220px;
+    max-height: 390px;
+}
+/* 箭头的样式 */
+.arrowhead_g {
+    position: relative;
+    width: 10%;
+    height: 10%;
+    top: 49%;
+}
+.arrowhead_w {
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    /* top: 40%; */
+}
+
+/*按钮样式*/
+.buttun_head{
+    position: relative;
+    width: 8vh;
+    height: 10%;
+    top: 47%;
+    /* background-size: cover; */
+    background-color: rgba(0, 0, 0, 0); /* 使用rgba颜色值设置透明背景 */
+    border: 0px solid #000; /* 添加边框，使按钮可见 */
+}
+
+.analysis-table1, .analysis-table2 {
+    width: 100%; /* 使表格宽度填满容器 */
+    table-layout: fixed;  /* 锁定表格布局 */
+    font-size: 15px;
+}
+.analysis-table1 th, .analysis-table2 th{
+    border-radius: 50px;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+.analysis-table1 th, .analysis-table1 td {
+    border: 1px solid #004c99;
+    padding: 2px;
+    border-radius: 50px;
+    text-align: center;
+}
+.part1{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    width: 100%;
+    height: 40%;
+}
+.GPT{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 69%;
+    height: 92%;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+.analysis-table1 th {
+    background-color: #004c99;
+    color: white;
+    width: 20%;
+}
+.analysis-table2 th {
+    border: 1px solid #004c99;
+    
+    padding: 5px;
+    text-align: center;
+}
+.analysis-table2 td {
+    border: 1px solid #004c99;
+    border-radius: 50px;
+    padding: 4px;
+    text-align: center;
+}
+
+.analysis-table2 th {
+    background-color: #004c99;
+    color: white;
+    width: 20%;
+}
+
+.analysis-table1 td .analysis-table2 td{
+    text-align: center;
+    /* vertical-align: middle; */
+    width: 20%;
+}
+
+/* 新增调整以对齐表格和视频/流程图展示 */
+/* .container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+} */
+.table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* align-items: flex-start; */
+    margin-left: 20px;
+    align-items: center;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* margin-top: 20px; */
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+
+}
+.analysis-results {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    width: 28%; /* 根据需要调整宽度，以确保与表格宽度一致 */
+}
+.lower-half {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%; /* 根据需要调整宽度，以确保与表格宽度一致 */
+    height: 55%;
+}
+
+/* .analysis-table {
+    width: 45%; /* 根据需要调整宽度，确保两张表格水平对齐 */
+/* } */ 
+
+.flowchart-display {
+    width: 45%; /* 使这两个区块的宽度与.analysis-table一致 */
+    /* 根据需要调整其他样式 */
+}
+.video-player video {
+    /* max-width: 100%; 或其他最大宽度，根据布局需求调整 */
+    max-height: 455px; /* 最大高度，可根据需要调整 */
+    height: auto; /* 保持视频的原始宽高比 */
+}
+.pic-player{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    width: 80%;
+    height: 97%;
+    max-height: 589px;
+    /* margin-bottom: 20px; */
+    margin-left: 50px;
+    margin-right: 50px;
+    
+}
+
+.section-title0 {
+    font-size: 50px; /* 示例字体大小 */
+    color: #004c99; /* 示例颜色，与你之前的设置保持一致 */
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 40px; /* 底部外边距 */
+    margin-top: 50px;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+
+.section-title1 {
+    font-size: 40px; /* 示例字体大小 */
+    color: #004c99; /* 示例颜色，与你之前的设置保持一致 */
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 15px; /* 底部外边距 */
+    margin-top: 25px;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+
+.section-title2 {
+    font-size: 20px; /* 示例字体大小 */
+    color: #004c99; /* 示例颜色，与你之前的设置保持一致 */
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 10px; /* 底部外边距 */
+    margin-top: 5px;
+    text-align: center;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+
+.section-title3 {
+    font-size: 30px; /* 示例字体大小 */
+    color: #004c99; /* 示例颜色，与你之前的设置保持一致 */
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 15px; /* 底部外边距 */
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+.section-title4 {
+    font-size: 35px; /* 示例字体大小 */
+    color: #004c99; /* 示例颜色，与你之前的设置保持一致 */
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 10px; /* 底部外边距 */
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+.section-title_top {
+    font-size: 20px; /* 示例字体大小 */
+    color: #004c99; /* 示例颜色，与你之前的设置保持一致 */
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 2px; /* 底部外边距 */
+    margin-top: 2px;
+    text-align: center;
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+.tips {
+    font-size: 15px; /* 示例字体大小 */
+    color: #d23838; /* 示例颜色，与你之前的设置保持一致 */
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 10px;
+    margin-top: 15px;
+    text-align: center;
+}
+.picDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 20%; */
+    /* height: % */
+    width:auto;
+    height: auto;
+}
+figure {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    /* 你可以继续添加更多的样式属性 */
+    padding: 10px; /* 内边距 */
+    border: 0px solid #000; /* 边框 */
+    /* background-color: #f0f0f0; 背景颜色 */
+    /* color: #333; 文本颜色 */
+    font-size: 16px; /* 字体大小 */
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+    color:#004c99;
+    /* 这只是一些例子，根据需要可以添加更多的属性 */
+}
+.pic_in_top{
+    width:auto;
+    height: auto;
+}
+.Legend{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* width: 6%; */
+    align-items: center;
+    height:10%;
+    width: 38%;
+    border:1px solid #000;
+    font-size: 20px;
+    padding-left: 5px;
+    border-radius: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif /* 设置字体系列 */
+}
+.GPT_container{
+    border: 2px solid #004c99; /* 设置边框样式 */
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    width: auto;
+    height: 90%;
+}
+/* .figcaption {
+    display: block;
+    color:#004c99;
+} */
+h2{
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}
+h3{
+    font-family: 'Comic Sans MS', sans-serif; /* 设置字体系列 */
+}

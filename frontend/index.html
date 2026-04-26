@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DesignWatch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+</head>
+<body>
+    <div class="total_container">
+        <!-- 第一部分：上传视频和上传图片界面 -->
+        <div class="container1">
+            <h2 class="section-title0">DesignWatch</h2>
+            <!-- 上传视频 -->
+            <div class="upload-container" id="videoUploadContainer">
+                <!--视频信息-->
+                <h2>Screen Recordings</h2>
+                <input type="file" id="videoInput" accept="video/*" multiple>
+                <button id="uploadVideo" onclick="uploadVideo()">upload</button>
+                <button id="deleteVideo">Delete</button>
+                <!-- 背调信息 -->
+                <h3>User Familarity</h3>
+                <input type="file" id="FamiliarInput" accept=".csv">
+                <button id="uploadFamiliar" onclick="uploadFamiliar()">upload</button>
+                <button id="deleteFamiliar">Delete</button>
+            </div>
+            <!-- 上传GT -->
+            <div class="upload-container">
+                <!--GT信息-->
+                <h2>Expected Workflow</h2>
+                <input type="file" id="imageInput" accept="image/*" multiple>
+                <button id="uploadImg" onclick="uploadImages()">upload</button>
+                <button id="deleteImages">Delete</button>
+                <!-- 任务信息 -->
+                <h3>Task Scenario</h3>
+                <input type="file" id="ScenarioInput" accept=".txt">
+                <button id="uploadScenario" onclick="uploadScenario()">upload</button>
+                <button id="deleteScenario">Delete</button>
+            </div>
+            <button id="startAnalysis">Start Analysis</button>
+            <!-- <button id="scrollToNext">Next</button> -->
+        </div>
+        
+        <!-- 第四部分：拓扑图 -->
+        <div class="container4">
+            <h2 class="section-title3">Users' Operation Path</h2>
+            <div class="top_Summary"> <!-- 拓扑图展示块 -->
+                <div class="top_container">
+                    <div class="top_buttun">
+                        <button id="allUsers" onclick="top_ALL()">All Users</button>
+                        <button id="inexperiencedUsers" onclick="top_inexperienced()">Inexperienced Users</button>
+                        <button id="proficientUsers" onclick="top_proficient()">Proficient Users</button>
+                    </div>
+                    <!-- <h3 class="section-title3" id="top_shower_title">All Users</h3> -->
+                    <!-- <h5 class="tips"> ## Red ## means Designer Expected workflow</h5> -->
+                    <div id="topology_shower" class="all_top_container"></div>
+                    
+                </div>
+                
+                <!-- <div id="towPart_top_shower" class="twoPart_top_container">
+                    <h3 class="section-title_top">Inexperienced Users</h3>
+                    <div id="twoPart_top_shower1" class="twoPart_top_container1"></div>
+                    
+                    <h3 class="section-title_top">Proficient Users</h3>
+                    <div id="twoPart_top_shower2" class="twoPart_top_container2"></div>
+                </div> -->
+
+                <div class="PE_content_container">
+                    <h4 class="section-title3" id="node_head"> Node </h4>
+                    <div id="node_shower" class="node_container"> <br> Click Nodes for More !!! </div>
+                    <h4 class="section-title3" id="edge_head">Edge Information</h4>
+                    <div id="edge_shower" class="edge_container"> <br> Click Edges for More !!! </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 第二部分：分析结果表格、视频播放与流程图展示 -->
+        <div class="container2">
+            <h2 class="section-title3" id="only_user_show">Analytics Dashboard</h2>
+            <!-- 第一部分 -->
+            <div class="lower-half">
+                <!-- 视频播放窗口与控制 -->
+                <!-- 视频播放窗口 -->
+                <div class="video-button-container" id="videoButtonContainer">
+                    <!-- 这里将使用JavaScript动态插入按钮 -->
+                </div>
+
+                <div class="video-player">
+                    <h3 class="section-title_top">Screen Recording</h3>
+                    <video id="videoPlayer" controls>
+                        <source src="movie.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                
+                
+                <!-- 流程图展示窗口 -->
+                <div class="pic-player">
+                    <h3 class="section-title_top" id="user_page_flow">User's Page Flow</h3>
+                    <!-- <div class="groundTruth_container" id="groundTruth_shower" data-title="流程图展示">
+                    </div> -->
+                    <div class="workflow_container" id="workflow_shower">
+                        <!-- 流程图展示内容 -->
+                    </div>
+                </div>
+                
+                <!-- </div> -->
+            </div>
+
+            <div class="part1">
+                <div class="analysis-results">
+                    <h3 class="section-title_top" id="table_id">Relevant Data</h3>
+                    <!-- 第一张表格 -->
+                    <div class="table">
+                        <h3 class="section-title_top" title="hello">Perceived Usability Prediction</h3>
+                        <!-- 哭脸: &#x1F622;  笑脸：&#x1F604;无表情： &#x1F611;-->
+                        <table class="analysis-table1">
+                            <tr>
+                                <th>Binary classification</th>
+                                <th>Positive?</th>
+                                <th>Above average?</th>
+                            </tr>
+                            <tr>
+                                <td title="hello">Difficulty</td>
+                                <td id="Hard_1">&#x1F622;</td>
+                                <td id="Hard_2">&#x1F604;</td>
+                            </tr>
+                            <tr>
+                                <td title="hello">Time Cost</td>
+                                <td id="Time_1"> &#x1F611;</td>
+                                <td id="Time_2"><!-- 后端模型传回的内容 --></td>
+                            </tr>
+                            <tr>
+                                <td title="hello">Information Content</td>
+                                <td id="Inf_1"><!-- 后端模型传回的内容 --></td>
+                                <td id="Inf_2"><!-- 后端模型传回的内容 --></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!-- 第二张表格 -->
+                    <div class="table">
+                        <h3 class="section-title_top">Statistical Index</h3>
+                        <table class="analysis-table2">
+                            <tr>
+                                <!-- <th></th> -->
+                                <th>Duration</th>
+                                <th>Average Dwell Time</th>
+                                <th title="The correct rate of user actions">Acc_rate</th>
+                                <!-- <th></th> -->
+                            </tr>
+                            <tr>
+                                <!-- <td>Row 1</td> -->
+                                <td id="duration"><!-- 后端模型传回的内容 --></td>
+                                <td id="avg_time"><!-- 后端模型传回的内容 --></td>
+                                <td id="acc_rate"><!-- 后端模型传回的内容 --></td>
+                                <!-- <td>后端模型传回的内容</td> -->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="GPT">
+                    <h3 class="section-title_top" id="GPT_Head">Operation Thought Analysis</h3>
+                    <div class="GPT_container">
+                        <div class="text_container" id="GPT_shower">
+                            &#x1F643;
+                        </div>
+
+                        <div class="Legend">
+                            <!-- <h4 > Legend </h4> -->
+                            Legend:  
+                            [positive] = &#x1F604; 
+                            [negative] = &#x1F622; 
+                            [neutral] = &#x1F611; 
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 第三部分：其他内容 -->
+        <!-- <div class="container3">
+            <h2 class="section-title3">User's Page Flow</h2> -->
+            <!-- 流程图展示内容 -->
+            <!-- <div class="workflow_container" id="workflow_shower">
+                
+            </div> -->
+            
+            
+        <!-- </div> -->
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
